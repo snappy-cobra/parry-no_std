@@ -61,7 +61,7 @@ impl HeightFieldStorage for CudaStorage {
 }
 
 #[cfg(feature = "cuda")]
-impl HeightFieldStorage for CudaStoragePtr {, "libm"
+impl HeightFieldStorage for CudaStoragePtr {
     type Heights = CudaArrayPointer2<Real>;
     type Status = CudaArrayPointer2<HeightFieldCellStatus>;
 }
