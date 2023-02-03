@@ -1,5 +1,7 @@
 use core::ops::IndexMut;
-#[cfg(feature = "std")]
+extern crate alloc;
+use alloc::vec::Vec;
+// #[cfg(feature = "std")]
 use na::{DMatrix, DVector, Scalar};
 
 /// Abstraction over a 1D array.
@@ -25,7 +27,7 @@ pub trait Array1<T>: IndexMut<usize, Output = T> {
     }
 }
 
-#[cfg(feature = "std")]
+// #[cfg(feature = "std")]
 impl<T> Array1<T> for Vec<T> {
     #[inline]
     fn len(&self) -> usize {
@@ -33,7 +35,7 @@ impl<T> Array1<T> for Vec<T> {
     }
 }
 
-#[cfg(feature = "std")]
+// #[cfg(feature = "std")]
 impl<T> Array1<T> for DVector<T> {
     #[inline]
     fn len(&self) -> usize {
@@ -55,7 +57,7 @@ pub trait Array2 {
     fn set(&mut self, i: usize, j: usize, val: Self::Item);
 }
 
-#[cfg(feature = "std")]
+// #[cfg(feature = "std")]
 impl<T: Scalar> Array2 for DMatrix<T> {
     type Item = T;
 
